@@ -140,7 +140,7 @@ def cinetica(bandas: np.ndarray = bandas, N: int = N, mu: float = mu, beta: floa
     return 2 * np.sum(bandas * f_FD(bandas, mu, beta)) / (N * 10)
 
 
-def valor_esp_cjcj(epsilon: np.array, U: np.array, mu: float = mu, beta: float = beta) -> np.array:
+def valor_esp_cjcj(epsilon: np.array, U: np.array, mu: float = mu, beta: float = beta) -> np.ndarray:
 
     array_1 = np.abs(U) ** 2
     array_2 = f_FD(
@@ -170,19 +170,13 @@ def valor_esp_n(bandas: np.ndarray = bandas, autovetores: np.ndarray = autovetor
 
 
 density = densidade()
-kinectic = cinetica()
-n_i = valor_esp_n()
+print('density =', density)
 
-print(
-    'density =',
-    density
-)
-print(
-    'kinectic =', kinectic
-)
-print(
-    'n(i) ->', n_i
-)
+kinectic = cinetica()
+print('kinectic =', kinectic)
+
+n_i = valor_esp_n()
+print('n(i) ->', n_i)
 
 
 if graficos == True:
